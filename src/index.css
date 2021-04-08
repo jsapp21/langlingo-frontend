@@ -3,13 +3,10 @@
 body {
   margin: 0;
   padding: 0;
-  /* font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  */
   background: linear-gradient(-45deg, #ee7752, #e4e73c, #23a6d5, #2b82f3);
-  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
 	background-size: 400% 400%;
 	animation: gradient 20s ease infinite;
   box-sizing: border-box;
-  /* font-family: 'Verdana', sans-serif; */
   font-family: 'Rubik', sans-serif !important;
 }
 
@@ -111,11 +108,9 @@ h5 {
   height: 140px;
   border: solid 3px white;
   border-radius: 10px;
-  /* float: left; */
   margin: 22px;
   cursor: pointer;
   background:rgb(21, 177, 41);
-  /* background:rgb(44, 174, 235); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,9 +173,6 @@ h4 {
   max-width: 960px;
   margin: 0 auto;
   padding: 30px;
-  /* background: #fff; */
-  /* display: flex; */
-  /* text-align: center; */
   justify-content: center;
   align-items: center;
 }
@@ -219,6 +211,7 @@ h4 {
   text-align: center;
   margin-bottom: 40px;
 }
+
 .ui.progress .bar>.progress {
   font-weight: 500;
   color: #000 !important;

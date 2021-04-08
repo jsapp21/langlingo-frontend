@@ -26,3 +26,5 @@ Follow langlingo-backend instructions before moving forward
 
 After the backend is installed:
 npm start 
+
+Created by James Sapp

@@ -9,6 +9,7 @@ class UserDashboard extends Component {
         let lang
         if (this.props.user.games.length === 0) {
             lang = [this.props.user.language]
+            // lang = this.props.user.language
         } else {
             lang = this.props.user.games.map(game => game.language)
         }

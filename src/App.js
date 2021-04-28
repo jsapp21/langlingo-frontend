@@ -42,7 +42,6 @@ componentDidMount(){
 
           <Switch>
             <Route path="/home" component={Home} />
-            <Route path="/dashboard/:id" component={UserContainer} />
             <Route  path="*" render={() => {
                   return ( this.props.user ? <Route path="/dashboard/:id" component={UserContainer} /> : <Redirect to='/home' />)
               }} />

@@ -53,9 +53,9 @@ class SignUp extends Component {
                     error: user.error 
                 })
             } else {
-                this.props.signUpSuccess(user)
+                this.props.signUpSuccess(user.user)
                 localStorage.setItem('token', user.token)
-                this.props.history.push(`/dashboard/${user.id}`)
+                this.props.history.push(`/dashboard/${user.user.id}`)
             }
         })
     

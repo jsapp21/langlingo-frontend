@@ -35,8 +35,6 @@ class Login extends Component {
         fetch('http://localhost:3000/login', newUser)
         .then(resp => resp.json())
         .then(user => {
-
-            console.log(user.user)
             if (user.error) {
                 this.setState({
                     error: user.error 

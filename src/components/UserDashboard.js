@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Language from './Language'
+import { selectLanguage } from '../selectors/language'
 import { Header, Segment, Grid, Button } from 'semantic-ui-react'
 
 class UserDashboard extends Component {
@@ -9,7 +10,6 @@ class UserDashboard extends Component {
         let lang
         if (this.props.user.games.length === 0) {
             lang = [this.props.user.language]
-            // lang = this.props.user.language
         } else {
             lang = this.props.user.games.map(game => game.language)
         }
@@ -32,28 +32,17 @@ class UserDashboard extends Component {
         const final = finalLang.map(l =>{
 
             let langCat
+
             switch (l) {
                 case 'es':
-                    langCat = this.props.user.games.filter(game => game.language === l)
-                    return <Language key={l} language={"Spanish"} category={langCat} iso={l} />
                 case 'fr':
-                    langCat = this.props.user.games.filter(game => game.language === l)
-                    return <Language key={l} language={"French"} category={langCat} iso={l} />
                 case 'de':
-                    langCat = this.props.user.games.filter(game => game.language === l)
-                    return <Language key={l} language={"German"} category={langCat} iso={l} />
                 case 'pt':
-                    langCat = this.props.user.games.filter(game => game.language === l)
-                    return <Language key={l} language={"Português"} category={langCat} iso={l} />
                 case 'ru':
-                    langCat = this.props.user.games.filter(game => game.language === l)
-                    return<Language key={l} language={"Russian"} category={langCat} iso={l} />
                 case 'th':
-                    langCat = this.props.user.games.filter(game => game.language === l)
-                    return <Language key={l} language={"Thai"} category={langCat} iso={l} />
                 case 'vi':
                     langCat = this.props.user.games.filter(game => game.language === l)
-                    return <Language key={l} language={"Vietnamese"} category={langCat} iso={l} />
+                    return <Language key={l} language={selectLanguage(l)} category={langCat} iso={l} />
                 default:
                     return l
                 }
@@ -61,27 +50,6 @@ class UserDashboard extends Component {
 
         return final
        
-    }
-
-    language = () => {
-        switch (this.props.wod.language) {
-            case 'es':
-               return  "Translated to Spanish."  
-            case 'fr':  
-                return "Translated to French"
-            case 'de': 
-                return "Translated to German"
-            case 'pt':
-                return "Translated to Português"
-            case 'ru':
-                return "Translated to Russian"
-            case 'th':
-                return "Translated to Thai"
-            case 'vi':
-                return "Translated to Vietnamese"
-            default:
-                return this.props.wod.language
-        }
     }
 
     handleAudio = () => {
@@ -132,7 +100,7 @@ class UserDashboard extends Component {
                                 <Segment circular style={square}>
                                     <Header as='h2'>
                                     {this.props.wod.word} {this.props.wod.image}
-                                        <Header.Subheader>{this.language()}</Header.Subheader>
+                                        <Header.Subheader>{`Translated to `}{selectLanguage(this.props.wod.language)}</Header.Subheader>
                                     </Header>
                                     </Segment>
                                     <Segment circular inverted color='green' style={square}>
@@ -167,6 +135,5 @@ const mapStateToProps = (state) => {
     }
 }
 
+
 export default connect(mapStateToProps)(UserDashboard);
-
-

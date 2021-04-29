@@ -1,28 +1,8 @@
 import React, { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
+import { selectLanguage } from '../selectors/language'
 
 class Translation extends Component {
-
-    language = () => {
-        switch (this.props.iso) {
-            case 'es':
-               return  "Spanish"
-            case 'fr':  
-                return "French"
-            case 'de': 
-                return "German"
-            case 'pt':
-                return "Português"
-            case 'ru':
-                return "Russian"
-            case 'th':
-                return "Thai"
-            case 'vi':
-                return "Vietnamese"
-            default:
-                return this.props.iso
-        }
-    }
 
     handleClick = () => {
 
@@ -57,7 +37,7 @@ class Translation extends Component {
     }
 
     render(){
-        console.log(this.props.iso)
+       
         return (
             <Grid centered columns={2}>
               <Grid.Column>
@@ -74,7 +54,7 @@ class Translation extends Component {
                     <div className="bubbleTwo bubble-bottom-left">
                         <h1>{this.props.translate}</h1>
                     
-                        <h5 style={{ textDecoration: 'none' }}>{this.language()}</h5>
+                        <h5 style={{ textDecoration: 'none' }}>{selectLanguage(this.props.iso)}</h5>
                     <button className="circular ui icon button" onClick={this.handleClick}>
                             <i className="play icon"></i>
                     </button>

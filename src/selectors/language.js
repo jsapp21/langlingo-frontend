@@ -18,3 +18,13 @@ export const selectLanguage = (lang) => {
             return lang
     }
 }
+
+export const options = [
+    { key: 'a', id: 'es', text: 'Spanish', value: 'es' },
+    { key: 'b', id: 'fr', text: 'French', value: 'fr' },
+    { key: 'c', id: 'de', text: 'German', value: 'de' },
+    { key: 'd', id: 'pt', text: 'Português', value: 'pt' },
+    { key: 'e', id: 'ru', text: 'Russian', value: 'ru' },
+    { key: 'f', id: 'th', text: 'Thai', value: 'th' },
+    { key: 'g', id: 'vi', text: 'Vietnamese', value: 'vi' }
+  ]

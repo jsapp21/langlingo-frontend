@@ -1,6 +1,9 @@
 import { Component } from 'react';
 import React from 'react-redux'
 import Translation from './Translation'
+import { options } from '../selectors/language'
+import { Button, Container, Form, Grid, Header } from 'semantic-ui-react'
+
 
 
 class Dictionary extends Component {
@@ -15,9 +18,15 @@ class Dictionary extends Component {
 
     
     handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        if (e.target.id){
+            this.setState({
+              language: e.target.id
+            })
+        } else {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
     }
 
     handleSubmit = (e) => {
@@ -49,27 +58,32 @@ class Dictionary extends Component {
     render(){
         return(
             <div className="ui container">
-            <form className="ui form" onSubmit={this.handleSubmit}>
-            <h2>Dictionary</h2>
-            <div className="equal width fields">
-                <div className="field">
-                    <select className="ui dropdown" name="language" value={this.state.language} onChange={this.handleChange}>
-                        <option value="">Select a language</option>
-                        <option value="es">Spanish</option>
-                        <option value="fr">French</option>
-                        <option value="de">German</option>
-                        <option value="pt">Português</option>
-                        <option value="ru">Russian</option>
-                        <option value="th">Thai</option>
-                        <option value="vi">Vietnamese</option>
-                    </select>
-                </div>
-                <div className="field">
-                <input placeholder="ex. Hello World" name="text" value={this.state.text} onChange={this.handleChange}/>
-                </div>
-            </div>
-            <button className="ui basic button">Translate</button>
-            </form>
+
+            <Grid textAlign='center' verticalAlign='middle'>
+                <Grid.Column style={{ width: 450 }}>
+                    <Form size='large' onSubmit={this.handleSubmit}>
+                    <Container>
+                        <Header as='h2' color='black' textAlign='center'>Dictionary</Header>
+                
+                        <Form.Select fluid placeholder='Select a language' options={options} name="language" onChange={this.handleChange} />
+                        
+                        <Form.Input
+                            fluid
+                            icon='text cursor'
+                            iconPosition='left'
+                            placeholder='ex. Hello World'
+                            type='text'
+                            name="text"
+                            onChange={this.handleChange}
+                        />
+
+                        <Button basic fluid size='small'>Translate</Button>
+                    </Container>
+                    </Form>
+
+                </Grid.Column>
+            </Grid>
+            
             <div className="ui divider"></div>
                 {this.state.show ? <Translation key={this.state.iso} iso={this.state.iso} english={this.state.words} translate={this.state.translate}/> : null}
         </div>

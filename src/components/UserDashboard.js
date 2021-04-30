@@ -29,10 +29,7 @@ class UserDashboard extends Component {
 
         const finalLang = removeDuplicates(lang)
 
-        const final = finalLang.map(l =>{
-
-            let langCat
-
+        const final = finalLang.map(l => {
             switch (l) {
                 case 'es':
                 case 'fr':
@@ -41,7 +38,7 @@ class UserDashboard extends Component {
                 case 'ru':
                 case 'th':
                 case 'vi':
-                    langCat = this.props.user.games.filter(game => game.language === l)
+                    let langCat = this.props.user.games.filter(game => game.language === l)
                     return <Language key={l} language={selectLanguage(l)} category={langCat} iso={l} />
                 default:
                     return l

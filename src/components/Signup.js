@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Container, Form, Grid, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { signUpSuccess } from '../actions/users'
+import { options } from '../selectors/language'
 
 class SignUp extends Component {
 
@@ -63,16 +64,6 @@ class SignUp extends Component {
     
     
     render() {
-
-        const options = [
-            { key: 'a', id: 'es', text: 'Spanish', value: 'es' },
-            { key: 'b', id: 'fr', text: 'French', value: 'fr' },
-            { key: 'c', id: 'de', text: 'German', value: 'de' },
-            { key: 'd', id: 'pt', text: 'Português', value: 'pt' },
-            { key: 'e', id: 'ru', text: 'Russian', value: 'ru' },
-            { key: 'f', id: 'th', text: 'Thai', value: 'th' },
-            { key: 'g', id: 'vi', text: 'Vietnamese', value: 'vi' }
-          ]
 
         return(
             <div>

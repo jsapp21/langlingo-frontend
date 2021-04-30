@@ -7,11 +7,14 @@ import { Header, Segment, Grid, Button } from 'semantic-ui-react'
 class UserDashboard extends Component {
       
     languages = () => {
+
+        const { user } = this.props
+
         let lang
-        if (this.props.user.games.length === 0) {
-            lang = [this.props.user.language]
+        if (user.games.length === 0) {
+            lang = [user.language]
         } else {
-            lang = this.props.user.games.map(game => game.language)
+            lang = user.games.map(game => game.language)
         }
        
        const removeDuplicates = (array) => {
@@ -38,7 +41,7 @@ class UserDashboard extends Component {
                 case 'ru':
                 case 'th':
                 case 'vi':
-                    let langCat = this.props.user.games.filter(game => game.language === l)
+                    let langCat = user.games.filter(game => game.language === l)
                     return <Language key={l} language={selectLanguage(l)} category={langCat} iso={l} />
                 default:
                     return l
@@ -84,6 +87,7 @@ class UserDashboard extends Component {
       render() {
         
           const square = { width: 250, height: 250 }
+          const { user, wod } = this.props
 
           return(
             <div className="ui container">
@@ -91,18 +95,18 @@ class UserDashboard extends Component {
                         <Grid.Row>
                         <Grid.Column width={8}>
                             <div style={{ textAlign: 'center' }}>
-                                <h1>Welcome, {this.props.user.username}</h1>
+                                <h1>Welcome, {user.username}</h1>
                                 <div className="ui clearing divider"></div>
-                                <h2>Word for {this.props.wod.date}</h2>
+                                <h2>Word for {wod.date}</h2>
                                 <Segment circular style={square}>
                                     <Header as='h2'>
-                                    {this.props.wod.word} {this.props.wod.image}
-                                        <Header.Subheader>{`Translated to `}{selectLanguage(this.props.wod.language)}</Header.Subheader>
+                                    {wod.word} {wod.image}
+                                        <Header.Subheader>{`Translated to `}{selectLanguage(wod.language)}</Header.Subheader>
                                     </Header>
                                     </Segment>
                                     <Segment circular inverted color='green' style={square}>
                                     <Header as='h2' inverted>
-                                    {this.props.wod.translate}                            
+                                    {wod.translate}                            
                                     </Header>
                                     <Button circular icon='play' onClick={this.handleAudio} />
                                 </Segment>
@@ -117,11 +121,9 @@ class UserDashboard extends Component {
                         </Grid.Column>
                         </Grid.Row>
                     </Grid>
-                
             </div>
         )
       }
-
 }
 
 const mapStateToProps = (state) => {
@@ -131,6 +133,5 @@ const mapStateToProps = (state) => {
         wod: state.wod
     }
 }
-
 
 export default connect(mapStateToProps)(UserDashboard);

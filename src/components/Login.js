@@ -45,9 +45,7 @@ class Login extends Component {
                 this.props.history.push(`/dashboard/${user.user.id}`)
             }
         })
-    
       }
-    
     
     render() {
 
@@ -72,15 +70,11 @@ class Login extends Component {
                         <Button color='yellow' fluid size='small'>Login</Button>
                     </Container>
                     </Form>
-          
                     New to us? <Link to='/home/signup'>Sign Up</Link>
-                    
                 </Grid.Column>
             </Grid>
-
         )
     }
-
 }
 
 

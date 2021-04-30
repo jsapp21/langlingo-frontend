@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { shuffledCategory } from '../actions/game'
 import { gameLanguage } from '../actions/game'
+import { Button, Container, Form, Grid, Header } from 'semantic-ui-react'
+import { options } from '../selectors/language'
+import { categories } from '../selectors/category'
 
 class GameSelection extends Component {
     state = {
@@ -10,9 +13,15 @@ class GameSelection extends Component {
     }
 
     handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
+        if (e.target.id.length === 2){
+            this.setState({
+              language: e.target.id
+            })
+        } else {
+            this.setState({
+                category: e.target.id
+            })
+        }
     }
     
     handleSubmit = (e) => {
@@ -37,38 +46,23 @@ class GameSelection extends Component {
     render(){
         return(
             <div className="ui container">
-                <form className="ui form" onSubmit={this.handleSubmit}>
-                <h2>Play Game</h2>
-                <div className="equal width fields">
-                    <div className="field">
-                        <select className="ui dropdown" name="language" onChange={this.handleChange}>
-                            <option value="">Select a language</option>
-                            <option value="es">Spanish</option>
-                            <option value="fr">French</option>
-                            <option value="de">German</option>
-                            <option value="pt">Português</option>
-                            <option value="ru">Russian</option>
-                            <option value="th">Thai</option>
-                            <option value="vi">Vietnamese</option>
-                        </select>
-                    </div>
-                    <div className="field">
-                        <select className="ui dropdown" name="category" onChange={this.handleChange}>
-                            <option value="">Select category</option>
-                            <option value="1">Animals</option>
-                            <option value="2">Emotions</option>
-                            <option value="3">Foods</option>
-                            <option value="4">Objects</option>
-                            <option value="5">Sports</option>
-                        </select>
-                    </div>
-                </div>
-                <button className="ui basic button">Create Game</button>
-                </form>
+                <Grid textAlign='center' verticalAlign='middle'>
+                    <Grid.Column style={{ width: 450 }}>
+                        <Form size='large' onSubmit={this.handleSubmit}>
+                        <Container>
+                            <Header as='h2' color='black' textAlign='center'>Play Game</Header>
+                    
+                            <Form.Select fluid placeholder='Select a language' options={options} name="language" onChange={this.handleChange} />
+                            <Form.Select fluid placeholder='Select a language' options={categories} name="category" onChange={this.handleChange} />
+
+                            <Button basic fluid size='small'>Create Game</Button>
+                        </Container>
+                        </Form>
+                    </Grid.Column>
+                </Grid>
             </div>
         )
     }
-
 }
 
 

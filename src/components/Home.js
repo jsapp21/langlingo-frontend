@@ -7,12 +7,10 @@ import { Route, Switch } from 'react-router-dom'
 const Home = () => {
     return(
         <div>
-
             <Grid >
               <Grid.Row>
                 <Grid.Column width={8}>
                     <div className="ui container">
-
                         <div className="holder">
                             <div className="bubble bubble-bottom-left">
                                 <h1>"Hello"</h1>
@@ -34,8 +32,6 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-
-                
                 </Grid.Column>
                 <Grid.Column width={8}>
                     <Switch>

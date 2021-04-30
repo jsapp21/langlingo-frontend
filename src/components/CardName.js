@@ -20,7 +20,6 @@ class CardName extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {  
-
         if (!prevProps.isComplete && this.props.isComplete) {
             this.finished()
             setTimeout(() => {

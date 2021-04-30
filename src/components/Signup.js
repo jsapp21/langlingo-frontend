@@ -99,14 +99,11 @@ class SignUp extends Component {
                         <Button color='yellow' fluid size='small'>Login</Button>
                     </Container>
                     </Form>
-
                 </Grid.Column>
             </Grid>
-
             </div>
         )
     }
-
 }
 
 

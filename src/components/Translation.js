@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Grid } from 'semantic-ui-react'
 import { selectLanguage } from '../selectors/language'
 
 class Translation extends Component {
@@ -37,34 +36,27 @@ class Translation extends Component {
     }
 
     render(){
-       
+        const { english, translate, iso } = this.props
         return (
-            <Grid centered columns={2}>
-              <Grid.Column>
-                    <div className="holder">
-                        <div className="bubble bubble-bottom-left">
-                            <h1>{`"${this.props.english}"`}</h1>
-                            <h5>English</h5>
-                        </div>
+            <div className="ui container">
+                <div className="holder">
+                    <div className="bubble bubble-bottom-left">
+                        <h1>{`"${english}"`}</h1>
+                        <h5>English</h5>
                     </div>
+                </div>
                 
-                    
                 <div className='holder'>
-
                     <div className="bubbleTwo bubble-bottom-left">
-                        <h1>{this.props.translate}</h1>
+                        <h1>{translate}</h1>
                     
-                        <h5 style={{ textDecoration: 'none' }}>{selectLanguage(this.props.iso)}</h5>
+                        <h5 style={{ textDecoration: 'none' }}>{selectLanguage(iso)}</h5>
                     <button className="circular ui icon button" onClick={this.handleClick}>
                             <i className="play icon"></i>
                     </button>
                     </div>
                 </div>
-
-                
-                
-            </Grid.Column>
-            </Grid>
+            </div>
         )
     }
 }

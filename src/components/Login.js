@@ -32,7 +32,7 @@ class Login extends Component {
           password: ''
         })
         
-        fetch('http://localhost:3000/login', newUser)
+        fetch('https://langlingo.herokuapp.com/login', newUser)
         .then(resp => resp.json())
         .then(user => {
             if (user.error) {

@@ -22,13 +22,13 @@ class UserContainer extends Component {
                 headers: { 'Content-Type': 'application/json' }
             }
     
-            fetch(`http://localhost:3000/images/${num}`, reqWord)
+            fetch(`https://langlingo.herokuapp.com/images/${num}`, reqWord)
             .then(resp => resp.json())
             .then(image => {
                 this.props.imageOfTheDay(image)
             })
     
-            fetch(`http://localhost:3000/words/${num}`, reqWord)
+            fetch(`https://langlingo.herokuapp.com/words/${num}`, reqWord)
             .then(resp => resp.json())
             .then(word => { 
               this.props.wordOfTheDay(word)

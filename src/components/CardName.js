@@ -52,7 +52,7 @@ class CardName extends Component {
                 body: JSON.stringify(audio)
               }
     
-            fetch(`http://localhost:3000/speech`, reqObj)
+            fetch(`https://langlingo.herokuapp.com/speech`, reqObj)
             .then(res => {
                 var reader = res.body.getReader();
                 return reader

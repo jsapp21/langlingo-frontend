@@ -22,7 +22,8 @@ componentDidMount(){
         headers: { 'Authorization': `Bearer ${token}` }
       }
 
-      fetch('http://localhost:3000/users/current_user', reqObj)
+      
+      fetch('https://langlingo.herokuapp.com/users/current_user', reqObj)
       .then(resp => resp.json())
       .then(user => {
           this.props.currentUser(user)

@@ -46,7 +46,7 @@ class SignUp extends Component {
             language: ''
         })
         
-        fetch('http://localhost:3000/users', newUser)
+        fetch('https://langlingo.herokuapp.com/users', newUser)
         .then(resp => resp.json())
         .then(user => {
             if (user.error) {

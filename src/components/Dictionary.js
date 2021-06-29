@@ -39,7 +39,7 @@ class Dictionary extends Component {
         }
         
 
-        fetch(`http://localhost:3000/words/`, reqObj)
+        fetch(`https://langlingo.herokuapp.com/words/`, reqObj)
         .then(resp => resp.json())
         .then(data => { 
             

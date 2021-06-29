@@ -32,7 +32,7 @@ class GameSelection extends Component {
             headers: { 'Content-Type': 'application/json' }
         }
 
-        fetch(`http://localhost:3000/categories/${this.state.category}/` + this.state.language, reqObj)
+        fetch(`https://langlingo.herokuapp.com/categories/${this.state.category}/` + this.state.language, reqObj)
         .then(resp => resp.json())
         .then(cards => { 
             console.log(cards)

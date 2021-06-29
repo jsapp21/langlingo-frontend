@@ -54,7 +54,7 @@ class Game extends Component {
             body: JSON.stringify(game)
         }
 
-        fetch(`http://localhost:3000/games/`, reqObj)
+        fetch(`https://langlingo.herokuapp.com/games/`, reqObj)
         .then(resp => resp.json())
         .then(game => { 
               this.props.updateUserGames(game)
